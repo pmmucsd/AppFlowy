@@ -1,4 +1,4 @@
-import 'dart:io' show Platform;
+import 'package:universal_platform/universal_platform.dart';
 
 import 'package:rich_clipboard/rich_clipboard.dart';
 
@@ -19,7 +19,7 @@ class AppFlowyClipboard {
     // https://github.com/BringingFire/rich_clipboard/issues/13
     // Wrapping a `<html><body>` tag for html in Windows,
     //  otherwise it will raise an exception
-    if (Platform.isWindows && html != null) {
+    if (UniversalPlatform.isWindows && html != null) {
       if (!html.startsWith('<html><body>')) {
         html = '<html><body>$html</body></html>';
       }
@@ -40,7 +40,7 @@ class AppFlowyClipboard {
 
     // https://github.com/BringingFire/rich_clipboard/issues/13
     // Remove all the fragment symbol in Windows.
-    if (Platform.isWindows && html != null) {
+    if (UniversalPlatform.isWindows && html != null) {
       html = html
           .replaceAll('<!--StartFragment-->', '')
           .replaceAll('<!--EndFragment-->', '');
