@@ -123,9 +123,6 @@ class _FlowyRichTextState extends State<FlowyRichText> with SelectableMixin {
 
   @override
   List<Rect> getRectsInSelection(Selection selection) {
-    assert(selection.isSingle &&
-        selection.start.path.equals(widget.textNode.path));
-
     final textSelection = TextSelection(
       baseOffset: selection.start.offset,
       extentOffset: selection.end.offset,
